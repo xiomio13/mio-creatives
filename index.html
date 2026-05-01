@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- JS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("UfmS6TEwF3rWhRZw-"); // Reemplaza con tu llave de EmailJS
+        })();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script defer src="./js/main.js"></script>
+
+    <title>Simulador de Presupuesto para Proyectos Creativos</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <!-- Usamos el nuevo archivo azul -->
+                <img src="./img/logo-blue.png" alt="Mio Creatives" class="logo-nav">
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto fw-semibold">
+                    <li class="nav-item"><a class="nav-link" href="#carouselHero">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contenedor-servicios">Servicios</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="text-center mb-0"> <!-- Bajamos el margen a 0 para que pegue con el contenido si usas margen negativo -->
+        <div id="carouselHero" class="carousel slide carousel-fade shadow-sm" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active" style="height: 400px;">
+                    <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=1280&auto=format&fit=crop"
+                        class="d-block w-100 h-100 object-fit-cover" alt="Diseño UI/UX">
+                    <!-- Caption Limpio: Sin fondo oscuro ni bordes redondeados -->
+                    <div class="carousel-caption">
+                        <h1 class="display-4 fw-bold">Cotizador Creativo</h1>
+                        <p class="lead">Diseño, Estrategia y Desarrollo para marcas que impactan.</p>
+                    </div>
+                </div>
+                <div class="carousel-item" style="height: 400px;">
+                    <img src="https://images.unsplash.com/photo-1614036634955-ae5e90f9b9eb?q=80&w=1280&auto=format&fit=crop"
+                        class="d-block w-100 h-100 object-fit-cover" alt="Branding">
+                    <div class="carousel-caption">
+                        <h2 class="display-4 fw-bold">Branding Integral</h2>
+                        <p class="lead">Creamos identidades visuales que cuentan historias únicas.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselHero" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselHero" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="container py-5">
+    
+        <main class="row g-4">
+    
+            <section class="col-lg-8">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2 class="fw-bold mb-2 mt-2 text-center">Servicios Disponibles</h2>
+                </div>
+            
+                <!-- Contenedor de Filtros -->
+                <div class="d-flex flex-wrap gap-2 mb-4" id="contenedor-filtros">
+                    <button class="btn btn-outline-primary btn-sm rounded-pill px-3 active" data-categoria="Todos">Todos</button>
+                    <button class="btn btn-outline-primary btn-sm rounded-pill px-3" data-categoria="Web">Web</button>
+                    <button class="btn btn-outline-primary btn-sm rounded-pill px-3" data-categoria="Diseño">Diseño</button>
+                    <button class="btn btn-outline-primary btn-sm rounded-pill px-3" data-categoria="Marketing">Marketing</button>
+                    <button class="btn btn-outline-primary btn-sm rounded-pill px-3" data-categoria="Contenido">Contenido</button>
+                </div>
+            
+                <!-- Contenedor de Servicios (SOLO UNO) -->
+                <div id="contenedor-servicios" class="row g-3"></div>
+            </section>
+    
+            <aside class="col-lg-4">
+                <div class="sticky-top" style="top: 20px;">
+    
+                    <div class="card shadow-sm border-0 mb-4">
+                        <div class="card-body">
+                            <h5 class="fw-bold mb-3">1. Tus Datos</h5>
+                            <div class="mb-3">
+                                <label class="form-label small fw-bold">Nombre</label>
+                                <input type="text" id="nombre-cliente" class="form-control form-control-sm"
+                                    placeholder="Nombre completo">
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label small fw-bold">Email</label>
+                                <input type="email" id="email-cliente" class="form-control form-control-sm"
+                                    placeholder="tu@email.com">
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div id="resumen-presupuesto" class="card shadow border-0 bg-white">
+                        <div class="card-body">
+                            <h5 class="fw-bold mb-4 text-start">2. Tu Presupuesto</h5>
+    
+                            <div id="lista-carrito" class="mb-4">
+                            </div>
+    
+                            <hr class="text-muted">
+    
+                            <div id="seccion-cupon" class="mb-4">
+                                <label class="form-label small fw-bold">¿Tienes un cupón?</label>
+                                <div class="input-group input-group-sm">
+                                    <input type="text" id="input-cupon" class="form-control" placeholder="Escribe aquí...">
+                                    <button id="btn-cupon" class="btn btn-dark">Aplicar</button>
+                                </div>
+                            </div>
+    
+                            <div class="bg-light p-3 rounded-3">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <span class="text-muted">Subtotal:</span>
+                                    <span class="fw-bold">S/<span id="subtotal">0.00</span></span> <!-- Cambiado aquí -->
+                                </div>
+                                <div class="d-flex justify-content-between mb-1 text-success">
+                                    <span class="small">Descuento:</span>
+                                    <span class="small">-S/<span id="descuento-monto">0.00</span></span> <!-- Cambiado aquí -->
+                                </div>
+                                <div class="d-flex justify-content-between mt-2 border-top pt-2">
+                                    <span class="fw-bold">Total Final:</span>
+                                    <span class="h5 fw-bold text-primary mb-0">S/<span id="total-final">0.00</span></span> <!-- Cambiado aquí -->
+                                </div>
+                            </div>
+    
+                            <button id="btn-finalizar" class="btn btn-primary w-100 mt-4 py-2 rounded-pill fw-bold shadow-sm">
+                                Finalizar y Enviar Presupuesto
+                            </button>
+                            <button id="btn-pdf" class="btn btn-outline-dark w-100 mt-2 py-2 rounded-pill fw-bold border-2">
+                                Descargar Presupuesto (PDF)
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </main>
+    </div>
+
+    <footer class="footer-custom text-white py-5 mt-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <!-- Usamos el logo original con filtro de inversión -->
+                    <img src="./img/logo.png" alt="Mio Creatives" class="logo-footer mb-3">
+                    <p class="text-white-50 small">Diseño y estrategia digital de alto impacto.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0 small text-muted">&copy; 2026 Mio Creatives. Todos los derechos reservados.</p>
+                    <div class="mt-2">
+                        <a href="#" class="text-white-50 text-decoration-none me-3 small">Instagram</a>
+                        <a href="#" class="text-white-50 text-decoration-none small">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

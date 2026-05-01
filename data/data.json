@@ -1,0 +1,50 @@
+[
+    { 
+        "id": 1, 
+        "nombre": "Branding Integral", 
+        "precio": 300, 
+        "categoria": "Diseño",
+        "imagen": "https://images.unsplash.com/photo-1534670007418-fbb7f6cf32c3?q=80&w=800&auto=format&fit=crop",
+        "descripcion": "Identidad visual completa, desde el logotipo hasta el manual de marca, para destacar en el mercado."
+    },
+    { 
+        "id": 2, 
+        "nombre": "Diseño Web Corporativo", 
+        "precio": 500, 
+        "categoria": "Web",
+        "imagen": "https://images.unsplash.com/photo-1540612597331-63c67ea382fc?q=80&w=800&auto=format&fit=crop",
+        "descripcion": "Sitios web optimizados, autogestionables y con un enfoque total en la experiencia de usuario." 
+    },
+    { 
+        "id": 3, 
+        "nombre": "Landing Page", 
+        "precio": 200, 
+        "categoria": "Web",
+        "imagen": "https://images.unsplash.com/photo-1642132652806-8aa09801c2ab?q=80&w=800&auto=format&fit=crop",
+        "descripcion": "Páginas de alta conversión diseñadas para convertir visitantes en clientes reales de inmediato." 
+    },
+    { 
+        "id": 4, 
+        "nombre": "Papelería Corporativa", 
+        "precio": 100, 
+        "categoria": "Diseño",
+        "imagen": "https://images.unsplash.com/photo-1636247499180-13285c86be9b?q=80&w=800&auto=format&fit=crop",
+        "descripcion": "Diseño de tarjetas, carpetas y hojas membretadas que refuerzan la presencia física de tu marca."
+    },
+    { 
+        "id": 5, 
+        "nombre": "Pack Redes Sociales", 
+        "precio": 150, 
+        "categoria": "Marketing",
+        "imagen": "https://images.unsplash.com/photo-1683721003111-070bcc053d8b?q=80&w=800&auto=format&fit=crop",
+        "descripcion": "Estrategia visual y plantillas personalizadas para potenciar tu presencia en Instagram y LinkedIn."
+    },
+    { 
+        "id": 6, 
+        "nombre": "Copywriting con IA", 
+        "precio": 80, 
+        "categoria": "Contenido",
+        "imagen": "https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?q=80&w=800&auto=format&fit=crop",
+        "descripcion": "Textos persuasivos y optimizados para SEO creados con apoyo de inteligencia artificial avanzada." 
+    }
+]
