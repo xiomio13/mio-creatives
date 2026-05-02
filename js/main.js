@@ -64,30 +64,56 @@ const renderizarPresupuesto = () => {
     listaCarrito.innerHTML = ""; 
     let acumulado = 0;
 
+    // 1. Renderizamos cada item y sumamos el bruto
     presupuesto.forEach((item, index) => {
         acumulado += item.precio;
         const divItem = document.createElement("div");
-        // Estilo más limpio para los items del carrito
         divItem.className = "d-flex justify-content-between align-items-center mb-2 p-2 bg-light rounded";
         divItem.innerHTML = `
             <span class="small fw-semibold">${item.nombre}</span>
             <div>
-                <span class="fw-bold me-2">S/${item.precio}</span>
+                <span class="fw-bold me-2">S/${item.precio.toFixed(2)}</span>
                 <button class="btn btn-sm p-0 border-0" onclick="eliminarDelPresupuesto(${index})">❌</button>
             </div>
         `;
         listaCarrito.appendChild(divItem);
     });
 
-    let montoDescuento = acumulado * descuentoPorcentaje;
-    let totalFinalCalculado = acumulado - montoDescuento;
+    // 2. AVISO INTELIGENTE: Sugerencia de cupón (UX Incentivo)
+    // Si el monto es >= 400 y aún no ha usado un cupón, mostramos un aviso sutil
+    if (acumulado >= 400 && descuentoPorcentaje === 0) {
+        Swal.fire({
+            title: '¡Beneficio Disponible! 🎁',
+            text: 'Tu proyecto califica para un descuento especial. Usa el código CREATIVO10 y obtén un 10% de descuento.',
+            icon: 'info',
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 5000,
+            timerProgressBar: true
+        });
+    }
 
+    // 3. Cálculos matemáticos (Orden: Descuento -> Neto -> IGV -> Total)
+    let montoDescuento = acumulado * descuentoPorcentaje;
+    let valorNeto = acumulado - montoDescuento; // Lo que cobras tú
+    let igv = valorNeto * 0.18; // Lo que va al estado (18%)
+    let totalFinalCalculado = valorNeto + igv; // Lo que paga el cliente final
+
+    // 4. Actualizamos el DOM con los IDs correspondientes
     document.getElementById("subtotal").innerText = acumulado.toFixed(2);
     document.getElementById("descuento-monto").innerText = montoDescuento.toFixed(2);
+    
+    const elementoIGV = document.getElementById("igv-monto");
+    if (elementoIGV) {
+        elementoIGV.innerText = igv.toFixed(2);
+    }
+
     document.getElementById("total-final").innerText = totalFinalCalculado.toFixed(2);
     
-    // Cada vez que el presupuesto cambia, actualizamos el look de las tarjetas
+    // 5. Sincronización visual y persistencia
     actualizarEstadoTarjetas();
+    localStorage.setItem("presupuesto", JSON.stringify(presupuesto));
 };
 
 // 4. LÓGICA DE NEGOCIO
@@ -256,3 +282,33 @@ if (botonPDF) {
     botonPDF.addEventListener("click", descargarPDF);
 }
 
+document.getElementById("btn-desbloquear-cupon").addEventListener("click", () => {
+    Swal.fire({
+        title: '¡Aquí tienes tu regalo! 🎁',
+        html: `
+            <p>Usa este código en el cotizador para obtener tu descuento:</p>
+            <div class="p-3 bg-light border rounded-3 mb-3">
+                <h3 class="fw-bold text-primary mb-0" id="codigo-texto">CODER20</h3>
+            </div>
+        `,
+        icon: 'success',
+        showCancelButton: true,
+        confirmButtonText: '<i class="bi bi-clipboard"></i> Copiar código',
+        cancelButtonText: 'Cerrar',
+        confirmButtonColor: '#0d6efd',
+        reverseButtons: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Lógica para copiar al portapapeles
+            navigator.clipboard.writeText("CODER20");
+            
+            Swal.fire({
+                title: '¡Copiado!',
+                text: 'El código CODER20 ya está en tu portapapeles.',
+                icon: 'success',
+                timer: 1500,
+                showConfirmButton: false
+            });
+        }
+    });
+});
