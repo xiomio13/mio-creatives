@@ -164,21 +164,28 @@
     </div>
 
     <!-- BANNER INTERACTIVO -->
+    <!-- BANNER HÍBRIDO (Móvil: Vertical | Desktop: Horizontal) -->
     <div class="container my-4">
         <div class="minimal-banner d-flex flex-column flex-md-row align-items-center shadow-sm border overflow-hidden">
+    
+            <!-- Área de Texto: Se ajusta según la pantalla -->
             <div class="p-4 flex-grow-1 text-center text-md-start">
-                <div class="d-flex align-items-center justify-content-center justify-content-md-start gap-3">
+                <div class="d-flex flex-column flex-md-row align-items-center gap-3">
                     <h2 class="display-5 fw-bold text-primary mb-0">20% OFF</h2>
+    
+                    <!-- Línea divisoria: Solo visible en desktop -->
                     <div class="vr d-none d-md-block my-2"></div>
+    
                     <div>
                         <h5 class="fw-bold text-dark mb-0">Beneficio Exclusivo</h5>
-                        <p class="text-muted small mb-0">Haz clic en el botón para desbloquear tu descuento especial.
-                        </p>
+                        <p class="text-muted small mb-0">Haz clic en el botón para desbloquear tu descuento especial.</p>
                     </div>
                 </div>
             </div>
+    
+            <!-- Botón: Full width en móvil, altura completa en desktop -->
             <button id="btn-desbloquear-cupon"
-                class="minimal-cta py-3 px-5 border-0 bg-primary text-white fw-bold text-uppercase h-100">
+                class="minimal-cta py-3 px-5 border-0 bg-primary text-white fw-bold text-uppercase">
                 ¡Lo quiero!
             </button>
         </div>
