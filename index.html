@@ -43,7 +43,7 @@
         </div>
     </nav>
 
-    <!-- HEADER / HERO CAROUSEL -->
+    <!-- HERO CAROUSEL -->
     <header class="text-center mb-0">
         <div id="carouselHero" class="carousel slide carousel-fade shadow-sm" data-bs-ride="carousel">
             <div class="carousel-inner">
@@ -105,11 +105,13 @@
                                 <label class="form-label small fw-bold">Nombre</label>
                                 <input type="text" id="nombre-cliente" class="form-control form-control-sm"
                                     placeholder="Nombre completo">
+                                <span id="error-nombre" class="text-danger small fw-bold"></span>
                             </div>
                             <div class="mb-2">
                                 <label class="form-label small fw-bold">Email</label>
                                 <input type="email" id="email-cliente" class="form-control form-control-sm"
                                     placeholder="tu@email.com">
+                                <span id="error-email" class="text-danger small fw-bold"></span>
                             </div>
                         </div>
                     </div>
@@ -163,17 +165,14 @@
         </main>
     </div>
 
-    <!-- BANNER INTERACTIVO -->
-    <!-- BANNER HÍBRIDO (Móvil: Vertical | Desktop: Horizontal) -->
+    <!-- Codigo de descuento -->
     <div class="container my-4">
         <div class="minimal-banner d-flex flex-column flex-md-row align-items-center shadow-sm border overflow-hidden">
     
-            <!-- Área de Texto: Se ajusta según la pantalla -->
             <div class="p-4 flex-grow-1 text-center text-md-start">
                 <div class="d-flex flex-column flex-md-row align-items-center gap-3">
                     <h2 class="display-5 fw-bold text-primary mb-0">20% OFF</h2>
-    
-                    <!-- Línea divisoria: Solo visible en desktop -->
+
                     <div class="vr d-none d-md-block my-2"></div>
     
                     <div>
@@ -183,7 +182,6 @@
                 </div>
             </div>
     
-            <!-- Botón: Full width en móvil, altura completa en desktop -->
             <button id="btn-desbloquear-cupon"
                 class="minimal-cta py-3 px-5 border-0 bg-primary text-white fw-bold text-uppercase">
                 ¡Lo quiero!

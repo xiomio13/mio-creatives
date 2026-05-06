@@ -1,4 +1,4 @@
-/* 1. Tipografía y Variables Globales */
+/* Tipografía y Variables Globales */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
 :root {
@@ -18,9 +18,9 @@ body {
     line-height: 1.6;
 }
 
-/* 2. Navegación (Fix de capas y visibilidad) */
+/* Navegación */
 .navbar-custom {
-    z-index: 1050 !important; /* Asegura estar sobre las tarjetas */
+    z-index: 1050 !important;
     position: sticky;
     top: 0;
     background-color: #ffffff !important;
@@ -37,9 +37,9 @@ body {
     transform: scale(1.05);
 }
 
-/* 3. Carrusel (Look Editorial Minimalista) */
+/* Carrusel */
 .carousel {
-    border-radius: 0; /* Estilo imponente y cuadrado */
+    border-radius: 0;
     overflow: hidden;
 }
 
@@ -54,10 +54,10 @@ body {
     text-shadow: 0 2px 15px rgba(0, 0, 0, 0.7);
 }
 
-/* 4. Tarjetas de Servicios */
+/* Servicios */
 .card {
     border: 1px solid var(--border-soft) !important;
-    border-radius: 16px; /* Ajustado para un look más moderno y no tan circular */
+    border-radius: 16px;
     background: #ffffff;
     box-shadow: var(--card-shadow) !important;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -85,13 +85,12 @@ body {
     transform: scale(1.08);
 }
 
-/* Estado Seleccionado (Feedback UX) */
 .card-selected {
     border: 2px solid var(--primary-color) !important;
     background-color: rgba(13, 110, 253, 0.02);
 }
 
-/* 5. Formulario y Resumen */
+/* Formulario */
 .form-control {
     border: 2px solid #f1f5f9;
     padding: 0.75rem;
@@ -104,7 +103,7 @@ body {
     outline: none;
 }
 
-/* 6. Footer (Midnight Blue) */
+/* Footer */
 .footer-custom {
     background-color: var(--midnight-blue) !important;
     color: #94a3b8;
@@ -120,7 +119,6 @@ body {
     filter: brightness(0) invert(1);
 }
 
-/* Estilos para los botones de filtro */
 #contenedor-filtros .btn-outline-primary {
     border-color: #e2e8f0;
     color: #64748b;
@@ -136,7 +134,7 @@ body {
     box-shadow: 0 4px 12px rgba(13, 110, 253, 0.2);
 }
 
-/* Estilo especial para el PDF */
+/* PDF */
 .pdf-export {
     padding: 40px !important;
     background-color: white !important;
@@ -152,7 +150,6 @@ body {
     color: white;
 }
 
-/* Mejora el espaciado de los items en el presupuesto */
 #lista-carrito div {
     border-bottom: 1px solid #f1f5f9;
     padding-bottom: 8px;
@@ -162,18 +159,16 @@ body {
     border-bottom: none;
 }
 
-/* Color para textos de copyright */
+/* Color copyright */
 .footer-custom .text-white {
     color: #ffffff !important;
     letter-spacing: 0.03em;
 }
 
-/* Color suavizado para descripciones */
 .footer-custom .text-white-50 {
     color: rgba(255, 255, 255, 0.6) !important;
 }
 
-/* Estilo para los iconos de redes sociales */
 .social-link {
     color: rgba(255, 255, 255, 0.6);
     font-size: 1.4rem;
@@ -181,39 +176,36 @@ body {
 }
 
 .social-link:hover {
-    color: #ffffff; /* Brilla al pasar el mouse */
+    color: #ffffff;
     transform: translateY(-3px);
 }
 
-/* Tamaño extra pequeño para créditos secundarios */
 .x-small {
     font-size: 0.75rem;
 }
 
 .social-link {
-    color: #ffffff; /* O rgba(255, 255, 255, 0.7) si quieres un efecto más sutil */
+    color: #ffffff;
     font-size: 1.5rem;
     transition: transform 0.3s ease;
 }
 
 .social-link:hover {
     color: var(--primary-color);
-    transform: scale(1.2); /* Un pequeño salto visual al pasar el mouse */
+    transform: scale(1.2);
 }
 
-/* AJUSTE DE IMPACTO SOLO PARA EL CARRUSEL EN MÓVILES */
+/* Carrusel responsive */
 @media (max-width: 768px) {
     
-    /* 1. Título Principal: Dominancia total */
     .carousel-caption h1 {
-        font-size: 2.6rem !important; /* Tamaño imponente para jerarquía clara */
+        font-size: 2.6rem !important;
         line-height: 1.1;
-        letter-spacing: -1px; /* Estilo editorial compacto */
+        letter-spacing: -1px;
         font-weight: 700;
         margin-bottom: 0.8rem;
     }
 
-    /* 2. Bajada de texto: Legibilidad y aire */
     .carousel-caption p {
         font-size: 1.05rem !important;
         font-weight: 300;
@@ -222,7 +214,6 @@ body {
         margin: 0 auto;
     }
 
-    /* 3. Posicionamiento: Evitamos que se pegue al borde inferior */
     .carousel-caption {
         bottom: 22% !important;
         padding-left: 15px;
@@ -230,7 +221,6 @@ body {
     }
 }
 
-/* Estilos Base del Banner */
 .minimal-banner {
     border-radius: 12px;
     background-color: #ffffff;
@@ -242,10 +232,9 @@ body {
     transform: translateY(-3px);
 }
 
-/* Botón Adaptable */
 .minimal-cta {
     transition: background-color 0.3s ease;
-    width: 100%; /* Por defecto en móviles: ancho total */
+    width: 100%;
     white-space: nowrap;
 }
 
@@ -253,24 +242,22 @@ body {
     background-color: #0b5ed7 !important;
 }
 
-/* CONFIGURACIÓN DESKTOP (iPad en adelante) */
 @media (min-width: 768px) {
     .minimal-banner {
-        height: 100px; /* Altura fija para el look horizontal */
+        height: 100px; 
     }
     
     .minimal-cta {
-        width: auto;   /* Recupera su ancho natural */
-        height: 100%;  /* Se estira para cubrir todo el lateral derecho */
+        width: auto;   
+        height: 100%; 
         padding: 0 40px !important;
     }
 
     .minimal-banner .display-5 {
-        font-size: 2.5rem; /* Ajuste de tamaño para que encaje en la fila */
+        font-size: 2.5rem; 
     }
 }
 
-/* Ajuste sutil para móviles muy pequeños */
 @media (max-width: 767px) {
     .minimal-banner .display-5 {
         margin-bottom: 0.5rem;
