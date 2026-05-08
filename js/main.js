@@ -18,7 +18,6 @@ const cargarServicios = async () => {
         servicios = await response.json();
         renderizarServicios(servicios);
     } catch (error) {
-        console.error(error);
         Swal.fire('Error', 'No pudimos conectar con la base de datos.', 'error');
     } finally {
         actualizarEstadoTarjetas();
